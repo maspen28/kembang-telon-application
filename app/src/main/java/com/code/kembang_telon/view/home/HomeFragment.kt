@@ -51,8 +51,20 @@ class HomeFragment : Fragment() {
                     }
                     is Result.Success -> {
                         binding.progressBar.visibility = View.GONE
+
                         val dataResult = result.data
-                        setDataProduct(dataResult.data!!.products)
+                        if(dataResult.data!!.products!!.isNotEmpty()){
+                            Log.e("DATA", "DATA KOSONG")
+                            binding.emptyBagMsgLayout.visibility = View.GONE
+                            setDataProduct(dataResult.data.products)
+
+                            binding.animationViewCartPage.pauseAnimation()
+
+                        }else{
+                            binding.animationViewCartPage.playAnimation()
+                            binding.animationViewCartPage.loop(true)
+                            binding.emptyBagMsgLayout.visibility = View.VISIBLE
+                        }
                     }
                     is Result.Error -> {
                         binding.progressBar.visibility = View.GONE

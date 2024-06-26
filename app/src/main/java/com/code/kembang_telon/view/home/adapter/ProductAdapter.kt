@@ -30,11 +30,9 @@ class ProductAdapter(private val productList: List<ProductsItem>, context: Conte
         holder.productName_singleProduct.text = product.name
         holder.productPrice_singleProduct.text = "Rp."+product.price
 
-        // url gambar harus ip local yang sama dengan penambahan produk di website
-        // kalau ip nya sama tingaal ubah correctedImageUrl menajdi cartItem.Image pada load di Glidenya
-        val correctedImageUrl = product.image!!.replace("127.0.0.1", "192.168.0.3")
+
         Glide.with(ctx)
-            .load(correctedImageUrl)
+            .load("http://192.168.0.7:8000/storage/products/${product.image}")
             .into(holder.productImage_singleProduct)
 
 

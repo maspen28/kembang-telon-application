@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     .commit()
                 return true
             }
-            R.id.favMenu -> {
+            R.id.bagMenu -> {
                 val fragment = HistoryShopFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.nav_fragment, fragment, fragment.javaClass.simpleName)
                     .commit()

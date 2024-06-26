@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.code.kembang_telon.MainDataSource
 import com.code.kembang_telon.R
 import com.code.kembang_telon.data.local.entity.ProductEntity
 import com.code.kembang_telon.data.remote.Result
@@ -15,6 +16,7 @@ import com.code.kembang_telon.data.remote.response.DataItem
 import com.code.kembang_telon.data.remote.response.DetailData
 import com.code.kembang_telon.data.remote.response.DetailProductResponse
 import com.code.kembang_telon.databinding.ActivityDetailProductBinding
+import com.code.kembang_telon.model.UserModel
 import com.code.kembang_telon.model.UserPreferences
 import com.code.kembang_telon.view.DataSourceManager
 import com.code.kembang_telon.view.ViewModelFactory
@@ -26,6 +28,8 @@ class DetailProductActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailProductBinding
     private lateinit var detailProductViewModel: DetailProductViewModel
+    private lateinit var mainDataSource: MainDataSource
+    private lateinit var user: UserModel
 
     private var qtyProduct = 1
 
@@ -65,9 +69,8 @@ class DetailProductActivity : AppCompatActivity() {
     }
 
     private fun setupContentData(data: DetailData) {
-        val correctedImageUrl = data.image!!.replace("127.0.0.1", "192.168.0.3")
         Glide.with(this)
-            .load(correctedImageUrl)
+            .load("http://192.168.0.7:8000/storage/products/${data.image}")
             .into(binding.productImage)
 
         val cleanDescription = data.description!!.replace("<p>", "").replace("</p>", "")
@@ -95,22 +98,30 @@ class DetailProductActivity : AppCompatActivity() {
 
         binding.bagButton.setOnClickListener {
             if(qtyProduct > 0){
-                addProductToBag(data.name!!, qtyProduct, data.price!!.toInt(), data.id!!.toString(), data.image!!)
+                addProductToBag(data.id.toString(), user.id , qtyProduct.toString())
             } else {
                 Toast.makeText(this, "Inputkan jumlah barangnya!", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun addProductToBag(pName: String, qua: Int, pPrice: Int, pPid: String, pImage: String) {
-
-        detailProductViewModel.insert(ProductEntity(pName, qua, pPrice, pPid, pImage))
+    private fun addProductToBag(product_id: String, customer_id: String, qty: String,) {
+        detailProductViewModel.insertCart(product_id, customer_id, qty)
         Toast.makeText(this, "Add to Bag Successfully", Toast.LENGTH_SHORT).show()
 
     }
 
 
     private fun setupViewModel(){
+        mainDataSource = ViewModelProvider(
+            this,
+            DataSourceManager(UserPreferences.getInstance(dataStore))
+        )[MainDataSource::class.java]
+
+        mainDataSource.getUser().observe(this) { user ->
+            this.user = user
+        }
+
         detailProductViewModel = viewModels<DetailProductViewModel> {
             ViewModelFactory.getInstance(application)
         }.value

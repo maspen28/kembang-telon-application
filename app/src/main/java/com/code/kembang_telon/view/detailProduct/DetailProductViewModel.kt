@@ -17,7 +17,7 @@ class DetailProductViewModel(private val repository: Repository) : ViewModel() {
         product = repository.getDetailProduct(id)
     }
 
-    fun insert(product: ProductEntity) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(product)
+    fun insertCart(product_id: String, customer_id: String, qty: String) = viewModelScope.launch {
+        repository.insertCart(product_id, customer_id, qty)
     }
 }

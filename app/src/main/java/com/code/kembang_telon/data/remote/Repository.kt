@@ -6,8 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import com.code.kembang_telon.data.local.entity.ProductEntity
 import com.code.kembang_telon.data.local.room.CardDao
 import com.code.kembang_telon.data.local.room.ProductDao
+import com.code.kembang_telon.data.remote.response.CartResponse
+import com.code.kembang_telon.data.remote.response.DeleteCartResponse
 import com.code.kembang_telon.data.remote.response.DetailProductResponse
 import com.code.kembang_telon.data.remote.response.LoginResponse
+import com.code.kembang_telon.data.remote.response.PostCartResponse
 import com.code.kembang_telon.data.remote.response.ProductResponse
 import com.code.kembang_telon.data.remote.response.RegisterResponse
 import com.code.kembang_telon.data.remote.retrofit.ApiService
@@ -26,19 +29,19 @@ class Repository(
     ) {
 
     // local
-    fun getAllCartProducts(): LiveData<List<ProductEntity>> = productDao.getAll()
-
-     fun update(product: ProductEntity) {
-         executorService.execute{ productDao.update(product)}
-    }
-
-     fun delete(product: ProductEntity) {
-         executorService.execute{productDao.delete(product)}
-    }
-
-     fun insert(product: ProductEntity) {
-         executorService.execute{productDao.insert(product) }
-     }
+//    fun getAllCartProducts(): LiveData<List<ProductEntity>> = productDao.getAll()
+//
+//     fun update(product: ProductEntity) {
+//         executorService.execute{ productDao.update(product)}
+//    }
+//
+//     fun delete(product: ProductEntity) {
+//         executorService.execute{productDao.delete(product)}
+//    }
+//
+//     fun insert(product: ProductEntity) {
+//         executorService.execute{productDao.insert(product) }
+//     }
 
 
 
@@ -69,6 +72,18 @@ class Repository(
         })
 
         return result
+    }
+
+    fun getCart(customer_id: String): LiveData<Result<CartResponse>>{
+        return makeApiCall(apiService.getCart(customer_id))
+    }
+
+    fun insertCart(product_id: String, customer_id: String, qty: String): LiveData<Result<PostCartResponse>>{
+        return makeApiCall(apiService.postCart(product_id, customer_id, qty))
+    }
+
+    fun deleteCart(id: String): LiveData<Result<DeleteCartResponse>>{
+        return makeApiCall(apiService.deleteCart(id))
     }
 
     fun getProduct(): LiveData<Result<ProductResponse>>{

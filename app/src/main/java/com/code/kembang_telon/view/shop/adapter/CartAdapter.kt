@@ -1,6 +1,7 @@
 package com.code.kembang_telon.view.shop.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.code.kembang_telon.data.local.entity.ProductEntity
 import com.code.kembang_telon.R
+import com.code.kembang_telon.data.remote.response.DataCart
+import com.code.kembang_telon.data.remote.response.ProductsItem
 
-class CartAdapter(private val ctx: Context, val listener: CartItemClickAdapter):RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val productList: List<DataCart>, private val ctx: Context, val listener: CartItemClickAdapter):RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
-    private val cartList: ArrayList<ProductEntity> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val cartView = LayoutInflater.from(ctx).inflate(R.layout.cart_item_single,parent,false)
@@ -22,33 +24,32 @@ class CartAdapter(private val ctx: Context, val listener: CartItemClickAdapter):
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
+        Log.e("dataerror", "MASUK KE BIND VIEW HOLDER")
 
+        val cartItem: DataCart = productList[position]
 
-        val cartItem: ProductEntity = cartList[position]
-
-        holder.cartName.text = cartItem.name
-        holder.cartPrice.text = "Rp."+ cartItem.price + " x " + cartItem.qua.toString()
-        holder.totalTvCart.text = "total : " + (cartItem.price * cartItem.qua).toString()
+        holder.cartName.text = cartItem.namaProduk
+        holder.cartPrice.text = "Rp."+ cartItem.price + " x " + cartItem.qty.toString()
+        holder.totalTvCart.text = "total : " + (cartItem.price!! * cartItem.qty!!).toString()
         holder.cartMore.setOnClickListener {
 
         }
 
-        // url gambar harus ip local yang sama dengan penambahan produk di website
-        // kalau ip nya sama tingaal ubah correctedImageUrl menajdi cartItem.Image pada load di Glidenya
-        val correctedImageUrl = cartItem.Image.replace("127.0.0.1", "192.168.0.3")
 
 
+
+        // rubah ip lokal
         Glide.with(ctx)
-            .load(correctedImageUrl)
+            .load("http://192.168.0.7:8000/storage/products/${cartItem.image}")
             .into(holder.cartImage)
 
         holder.cartMore.setOnClickListener {
-            listener.onItemDeleteClick(cartItem)
+            listener.onItemDeleteClick(cartItem.id.toString())
         }
     }
 
     override fun getItemCount(): Int {
-        return cartList.size
+        return productList.size
     }
 
 
@@ -61,18 +62,9 @@ class CartAdapter(private val ctx: Context, val listener: CartItemClickAdapter):
         val cartPrice: TextView = itemView.findViewById(R.id.cartPrice)
         val totalTvCart: TextView = itemView.findViewById(R.id.totalTvCart)
     }
-
-    fun updateList(newList: List<ProductEntity>){
-        cartList.clear()
-        cartList.addAll(newList)
-        notifyDataSetChanged()
-    }
-
-
 }
 
 interface CartItemClickAdapter{
-    fun onItemDeleteClick(product: ProductEntity)
-    fun onItemUpdateClick(product: ProductEntity)
+    fun onItemDeleteClick(cart_id: String)
 
 }

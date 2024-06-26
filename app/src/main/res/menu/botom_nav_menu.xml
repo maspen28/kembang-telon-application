@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_shopping_cart"/>
 
     <item
-        android:id="@+id/favMenu"
-        android:title="Favorites"
-        android:icon="@drawable/ic_fav"/>
+        android:id="@+id/bagMenu"
+        android:title="Orders"
+        android:icon="@drawable/ic_bag"/>
     <item
         android:id="@+id/profileMenu"
         android:title="Profile"

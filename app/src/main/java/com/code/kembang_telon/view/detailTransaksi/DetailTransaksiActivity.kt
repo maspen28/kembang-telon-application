@@ -15,7 +15,8 @@ import com.code.kembang_telon.view.DataSourceManager
 import com.code.kembang_telon.view.ViewModelFactory
 import com.code.kembang_telon.view.detailTransaksi.adapter.ItemAdapter
 import com.code.kembang_telon.view.login.dataStore
-import com.code.kembang_telon.view.shop.adapter.CartAdapter
+import com.code.kembang_telon.data.remote.Result
+import com.code.kembang_telon.data.remote.response.DataCart
 
 class DetailTransaksiActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailTransaksiBinding
@@ -51,6 +52,7 @@ class DetailTransaksiActivity : AppCompatActivity() {
     }
 
     private fun setupContentData(){
+        detailTransaksiViewModel.getCart(user.id)
         binding.tvName.text = user.name
         binding.tvAddress.text = user.alamat
         binding.tvPhoneNumber.text = "08122331633170"
@@ -59,9 +61,24 @@ class DetailTransaksiActivity : AppCompatActivity() {
         itemAdapter = ItemAdapter(this)
         binding.itemRecView.adapter = itemAdapter
 
-        detailTransaksiViewModel.allproducts.observe(this) {result ->
-            result?.let {
-                itemAdapter.updateList(it)
+        detailTransaksiViewModel.allCart.observe(this) {result ->
+            if(result != null){
+                when(result){
+                    is Result.Loading ->{
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
+                    is Result.Success ->{
+                        binding.progressBar.visibility = View.GONE
+                        val data = result.data
+                        if(data.status == 200){
+                            val nonNullCart = data.data?.filterNotNull() ?: emptyList()
+                            itemAdapter.updateList(nonNullCart)
+                        }
+                    }
+                    is Result.Error ->{
+                        binding.progressBar.visibility = View.GONE
+                    }
+                }
             }
 
         }

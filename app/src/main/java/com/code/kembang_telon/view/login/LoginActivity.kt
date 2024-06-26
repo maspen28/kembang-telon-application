@@ -81,7 +81,7 @@ class LoginActivity : AppCompatActivity() {
                                     binding.progressBar.visibility = View.GONE
                                     val data = result.data
                                     if(data.status == 200){
-                                        loginDataSource.saveUser(UserModel(data.data!!.name!!, data.data.email!!, data.data.address!!, phoneNumber = if(data.data.phoneNumber == null) "" else data.data.phoneNumber.toString(), username = data.data.username!!, isLogin = true))
+                                        loginDataSource.saveUser(UserModel(data.data!!.id.toString(),data.data.name!!, data.data.email!!, data.data.address!!, phoneNumber = if(data.data.phoneNumber == null) "" else data.data.phoneNumber.toString(), username = data.data.username!!, isLogin = true))
 
                                         val intent = Intent(this, MainActivity::class.java)
                                         startActivity(intent)

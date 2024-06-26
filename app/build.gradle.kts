@@ -51,7 +51,7 @@ dependencies {
 //    implementation("androidx.room:room-runtime:2.5.0-beta02")
 //    kapt ("androidx.room:room-compiler:2.5.0-beta02")
 //    implementation ("androidx.room:room-ktx:2.5.0-beta02")
-
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.airbnb.android:lottie:5.2.0")
     implementation ("androidx.room:room-runtime:2.3.0")
     kapt ("androidx.room:room-compiler:2.3.0")

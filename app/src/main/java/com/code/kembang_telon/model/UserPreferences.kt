@@ -13,6 +13,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
     fun getUser(): Flow<UserModel> {
         return dataStore.data.map { preferences ->
             UserModel(
+                preferences[ID_KEY] ?: "",
                 preferences[NAME_KEY] ?:"",
                 preferences[EMAIL_KEY] ?:"",
                 preferences[ALAMAT_KEY] ?: "",
@@ -25,6 +26,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
 
     suspend fun saveUser(user: UserModel) {
         dataStore.edit { preferences ->
+            preferences[ID_KEY] = user.id
             preferences[NAME_KEY] = user.name
             preferences[EMAIL_KEY] = user.email
             preferences[ALAMAT_KEY] = user.alamat
@@ -36,14 +38,20 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
 
     suspend fun logout() {
         dataStore.edit { preferences ->
-            preferences[STATE_KEY] = false
+            preferences.remove(ID_KEY)
+            preferences.remove(NAME_KEY)
+            preferences.remove(EMAIL_KEY)
+            preferences.remove(ALAMAT_KEY)
+            preferences.remove(USERNAME_KEY)
+            preferences.remove(PHONENUMBER_KEY)
+            preferences.remove(STATE_KEY)
         }
     }
 
     companion object {
         @Volatile
         private var INSTANCE: UserPreferences? = null
-
+        private val ID_KEY = stringPreferencesKey("id")
         private val NAME_KEY = stringPreferencesKey("name")
         private val EMAIL_KEY = stringPreferencesKey("email")
         private val ALAMAT_KEY = stringPreferencesKey("alamat")
