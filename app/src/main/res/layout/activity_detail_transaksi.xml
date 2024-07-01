@@ -1,182 +1,501 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.detailTransaksi.DetailTransaksiActivity">
 
-    <TextView
-        android:id="@+id/labelDataPembeli"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:fontFamily="@font/metropolis_semibold"
-        android:text="Data Pembeli"
-        android:textColor="@color/mainText"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/containerDataPembeli"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="8dp"
-        android:paddingHorizontal="16dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelDataPembeli">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/cvNama"
+        <TextView
+            android:id="@+id/labelDataPembeli"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="8dp">
-
-            <TextView
-                android:id="@+id/labelName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/metropolis_semibold"
-                android:maxEms="12"
-                android:maxLines="1"
-                android:text="Nama"
-                android:textColor="@color/mainText"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/metropolis_semibold"
-                android:maxLines="1"
-                android:textAlignment="textEnd"
-                android:text="Maspen"
-                android:textColor="@color/mainText"
-                android:textSize="14sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/cvAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/metropolis_semibold"
+            android:text="Data Pembeli"
+            android:textColor="@color/mainText"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cvNama">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/labelAddress"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/metropolis_semibold"
-                android:maxEms="12"
-                android:maxLines="1"
-                android:text="Alamat"
-                android:textColor="@color/mainText"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tvAddress"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/metropolis_semibold"
-                android:maxLines="1"
-                android:textAlignment="textEnd"
-                android:text="Jl bambu"
-                android:textColor="@color/mainText"
-                android:textSize="14sp" />
-        </LinearLayout>
         <LinearLayout
-            android:id="@+id/cvPhoneNumber"
+            android:id="@+id/containerDataPembeli"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:layout_marginTop="18dp"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cvAddress">
+            app:layout_constraintTop_toBottomOf="@+id/labelDataPembeli">
 
-            <TextView
-                android:id="@+id/labelPhoneNumber"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/cvNama"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/metropolis_semibold"
-                android:maxEms="12"
-                android:maxLines="1"
-                android:text="Nomor Telephone"
-                android:textColor="@color/mainText"
-                android:textSize="14sp" />
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="@drawable/top_border">
 
-            <TextView
-                android:id="@+id/tvPhoneNumber"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/labelName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:maxEms="12"
+                    android:maxLines="1"
+                    android:text="Nama"
+                    android:textColor="@color/mainText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:maxLines="1"
+                    android:text="Maspen"
+                    android:textColor="@color/textAd"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/cvAddress"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/metropolis_semibold"
-                android:maxLines="1"
-                android:textAlignment="textEnd"
-                android:text="081234567891"
-                android:textColor="@color/mainText"
-                android:textSize="14sp" />
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="@drawable/top_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvNama">
+
+
+                <TextView
+                    android:id="@+id/labelAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:maxEms="12"
+                    android:maxLines="1"
+                    android:text="Alamat"
+                    android:textColor="@color/mainText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:maxLines="1"
+                    android:text="Jl bambu"
+                    android:textColor="@color/textAd"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/cvPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvAddress"
+                android:background="@drawable/top_border">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/labelPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/metropolis_semibold"
+                        android:maxEms="12"
+                        android:maxLines="1"
+                        android:text="Nomor Telephone*"
+                        android:textColor="@color/mainText"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/metropolis_semibold"
+                        android:maxLines="1"
+                        android:text="wajib diisi*"
+                        android:textColor="@color/textAd"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/phoneNumberEdit"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_edit_24" />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
 
 
 
+        <TextView
+            android:id="@+id/labelDataItem"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/metropolis_semibold"
+            android:text="Data Item"
+            android:textColor="@color/mainText"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/containerDataPembeli"/>
 
-    <TextView
-        android:id="@+id/labelDataItem"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:fontFamily="@font/metropolis_semibold"
-        android:text="Data Item"
-        android:textColor="@color/mainText"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/containerDataPembeli"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemRecView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            tools:listitem="@layout/card_item_checkout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelDataItem">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemRecView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        tools:listitem="@layout/card_item_checkout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelDataItem">
+        </androidx.recyclerview.widget.RecyclerView>
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <TextView
+            android:id="@+id/labelDataPengiriman"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/metropolis_semibold"
+            android:text="Data Pengiriman"
+            android:textColor="@color/mainText"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemRecView"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        <LinearLayout
+            android:id="@+id/cvSpinnerProvinsi"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_border"
+            app:layout_constraintTop_toBottomOf="@+id/labelDataPengiriman"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cvSpinnerCity"
+            android:padding="12dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/labelProvince"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/spinnerProvince"
+                android:text="Provinsi"
+                android:paddingLeft="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerProvince"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelProvince"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/cvSpinnerCity"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_border"
+            app:layout_constraintTop_toBottomOf="@+id/cvSpinnerProvinsi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cvSpinnerDistrict"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/labelCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/spinnerProvince"
+                android:text="Kota"
+                android:paddingLeft="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelProvince"
+                />
+
+        </LinearLayout>
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerCity"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/cvSpinnerProvinsi"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/spinnerSubDistrict"-->
+<!--            android:padding="16dp"-->
+<!--            android:layout_marginHorizontal="12dp"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:background="@drawable/spinner_background"/>-->
+
+
+        <LinearLayout
+            android:id="@+id/cvSpinnerDistrict"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_border"
+            app:layout_constraintTop_toBottomOf="@+id/cvSpinnerCity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cvSpinnerPostalCode"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/labelDistrict"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/spinnerProvince"
+                android:text="Kecamatan"
+                android:paddingLeft="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerSubDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelProvince"
+                />
+
+        </LinearLayout>
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerSubDistrict"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/spinnerCity"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/spinnerPostalCode"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:layout_marginHorizontal="12dp"-->
+<!--            android:padding="16dp"-->
+<!--            android:background="@drawable/spinner_background" />-->
+
+        <LinearLayout
+            android:id="@+id/cvSpinnerPostalCode"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_border"
+            app:layout_constraintTop_toBottomOf="@+id/cvSpinnerDistrict"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomCartLayoutTransaction"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/labelPostalCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/spinnerProvince"
+                android:text="Kurir"
+                android:paddingLeft="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerPostalCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelProvince"
+                />
+
+        </LinearLayout>
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerPostalCode"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/spinnerSubDistrict"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:layout_marginHorizontal="12dp"-->
+<!--            android:padding="16dp"-->
+<!--            android:background="@drawable/spinner_background"/>-->
+
+
+        <LinearLayout
+            android:id="@+id/bottomCartLayoutTransaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/background"
+            app:layout_constraintTop_toBottomOf="@id/cvSpinnerPostalCode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/metropolis_regular"
+                    android:text="Total item:"
+                    android:textColor="@color/textAd"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/totalItem"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:gravity="right"
+                    android:text="Rp.0"
+                    android:textColor="@color/mainText"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/metropolis_regular"
+                android:text="Ongkir:"
+                android:textColor="@color/textAd"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/totalOngkir"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/metropolis_semibold"
+                android:gravity="right"
+                android:text="Rp.0"
+                android:textColor="@color/mainText"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/metropolis_regular"
+                    android:text="Total:"
+                    android:textColor="@color/textAd"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/totalPriceBagFrag"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:gravity="right"
+                    android:text="Rp.0"
+                    android:textColor="@color/mainText"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/checkOutPage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_bg"
+
+                android:text="CHECK OUT" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

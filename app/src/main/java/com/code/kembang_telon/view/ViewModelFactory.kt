@@ -7,6 +7,7 @@ import com.code.kembang_telon.data.remote.Repository
 import com.code.kembang_telon.di.Injection
 import com.code.kembang_telon.view.detailProduct.DetailProductViewModel
 import com.code.kembang_telon.view.detailTransaksi.DetailTransaksiViewModel
+import com.code.kembang_telon.view.history.HistoryShopViewModel
 import com.code.kembang_telon.view.home.HomeViewModel
 import com.code.kembang_telon.view.login.LoginViewModel
 import com.code.kembang_telon.view.profile.ProfileViewModel
@@ -34,6 +35,8 @@ class ViewModelFactory private constructor(private val repository: Repository) :
              return DetailTransaksiViewModel(repository) as T
          }else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
              return ProfileViewModel(repository) as T
+         }else if (modelClass.isAssignableFrom(HistoryShopViewModel::class.java)) {
+             return HistoryShopViewModel(repository) as T
          }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

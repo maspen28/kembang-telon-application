@@ -29,7 +29,7 @@ class ItemAdapter(private val ctx: Context):RecyclerView.Adapter<ItemAdapter.Ite
 
         holder.itemName.text = cartItem.namaProduk
         holder.countTvItem.text = "Jumlah "+  cartItem.qty.toString()
-        holder.totalCountTvItem.text = "Rp." + cartItem.price
+        holder.totalCountTvItem.text = "Rp." + (cartItem.price!! * cartItem.qty!!).toString()
 
 
     }

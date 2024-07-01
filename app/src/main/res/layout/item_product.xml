@@ -33,9 +33,10 @@
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="180dp"
-        android:layout_height="110dp"
+        android:layout_height="80dp"
         android:background="@color/background"
         android:orientation="vertical"
+        android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         >
@@ -48,7 +49,7 @@
             android:textColor="@color/mainText"
             android:maxLines="2"
             android:text="Product Name"
-            android:textSize="13sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/productPrice_singleProduct"
@@ -56,8 +57,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:maxLines="1"
+            android:layout_marginTop="2dp"
             android:text="Product Price"
-            android:textColor="@color/primary"
             android:textSize="13sp" />
 
     </LinearLayout>

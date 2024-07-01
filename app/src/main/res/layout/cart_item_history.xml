@@ -1,0 +1,154 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/backgroundAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="11dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/invoice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Invoice: INV-668161f7c8df7"
+                    android:textSize="16sp"
+                    android:textColor="@color/mainText"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dikonfirmasi"
+                    android:textSize="14sp"
+                    android:textColor="@color/mainText"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/customer_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Name: huja"
+                        android:textSize="14sp"
+                        android:textColor="@color/mainText"
+                        android:fontFamily="@font/metropolis_regular"/>
+
+                    <TextView
+                        android:id="@+id/customer_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone: 0852"
+                        android:textSize="14sp"
+                        android:textColor="@color/mainText"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/metropolis_regular"/>
+
+                    <TextView
+                        android:id="@+id/customer_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Address: jl huja"
+                        android:textSize="14sp"
+                        android:textColor="@color/mainText"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/metropolis_regular"/>
+
+
+                    <TextView
+                        android:id="@+id/created_at"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Date: 2024-06-30"
+                        android:textSize="14sp"
+                        android:textColor="@color/mainText"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/metropolis_regular"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:paddingLeft="16dp">
+
+                    <TextView
+                        android:id="@+id/product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kembang Telon v1"
+                        android:textSize="14sp"
+                        android:textColor="@color/mainText"
+                        android:fontFamily="@font/metropolis_regular"/>
+
+                    <TextView
+                        android:id="@+id/product_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price: 120000"
+                        android:textSize="14sp"
+                        android:textColor="@color/mainText"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/metropolis_regular"/>
+
+                    <TextView
+                        android:id="@+id/product_qty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Qty: 1"
+                        android:textSize="14sp"
+                        android:textColor="@color/mainText"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/metropolis_regular"/>
+
+                    <TextView
+                        android:id="@+id/total_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Total Cost: 227000"
+                        android:textSize="14sp"
+                        android:textColor="@color/mainText"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/metropolis_regular"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,11 +3,14 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
+
 }
 
 android {
     namespace = "com.code.kembang_telon"
     compileSdk = 34
+
+
 
     defaultConfig {
         applicationId = "com.code.kembang_telon"
@@ -17,6 +20,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", "\"http://192.168.0.4:8000\"")
+        buildConfigField ("String", "CLIENT_KEY", "\"SB-Mid-client-0tjNqdkfZgCiKC-P\"")
+        buildConfigField ("String", "PAYMENT_URL", "\"https://app.sandbox.midtrans.com/snap/v4/redirection\"")
+
     }
 
     buildTypes {
@@ -42,6 +50,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -51,6 +60,11 @@ dependencies {
 //    implementation("androidx.room:room-runtime:2.5.0-beta02")
 //    kapt ("androidx.room:room-compiler:2.5.0-beta02")
 //    implementation ("androidx.room:room-ktx:2.5.0-beta02")
+
+    // midtrans
+    implementation ("com.midtrans:uikit:2.0.0")
+    implementation ("com.midtrans:uikit:2.0.0-SANDBOX")
+
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.airbnb.android:lottie:5.2.0")
     implementation ("androidx.room:room-runtime:2.3.0")

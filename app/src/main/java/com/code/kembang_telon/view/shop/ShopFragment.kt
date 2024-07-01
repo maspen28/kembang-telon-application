@@ -80,8 +80,6 @@ class ShopFragment : Fragment(), CartItemClickAdapter {
         Item = arrayListOf()
 
         shopViewModel.allCart.observe(viewLifecycleOwner){ result->
-            Log.e("dataerror", "MASUK KE OBSERVER ALLCART")
-
             if(result != null){
                 when(result){
                     is Result.Loading -> {

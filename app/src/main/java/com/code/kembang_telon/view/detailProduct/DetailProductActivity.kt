@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.code.kembang_telon.BuildConfig
 import com.code.kembang_telon.MainDataSource
 import com.code.kembang_telon.R
 import com.code.kembang_telon.data.local.entity.ProductEntity
@@ -70,7 +71,7 @@ class DetailProductActivity : AppCompatActivity() {
 
     private fun setupContentData(data: DetailData) {
         Glide.with(this)
-            .load("http://192.168.0.7:8000/storage/products/${data.image}")
+            .load(BuildConfig.BASE_URL + "/storage/products/${data.image}")
             .into(binding.productImage)
 
         val cleanDescription = data.description!!.replace("<p>", "").replace("</p>", "")
@@ -85,6 +86,7 @@ class DetailProductActivity : AppCompatActivity() {
             if (qtyProduct > 1) {
                 qtyProduct--
                 binding.qtyText.text = qtyProduct.toString()
+                binding.productPrice.text = "Rp."+ (data.price!! * qtyProduct).toString()
             }
         }
 
@@ -92,6 +94,7 @@ class DetailProductActivity : AppCompatActivity() {
             if (qtyProduct < 5) {
                 qtyProduct++
                 binding.qtyText.text = qtyProduct.toString()
+                binding.productPrice.text = "Rp."+ (data.price!! * qtyProduct).toString()
             }
         }
 

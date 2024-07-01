@@ -15,7 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kembang_telon"
         android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup"
         tools:targetApi="31">
+        <activity
+            android:name=".view.payments.PaymentMidtransActivity"
+            android:exported="false" />
         <activity
             android:name=".view.detailTransaksi.DetailTransaksiActivity"
             android:exported="false" />
@@ -28,6 +32,7 @@
         <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

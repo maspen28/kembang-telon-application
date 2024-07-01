@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.code.kembang_telon.BuildConfig
 import com.code.kembang_telon.data.local.entity.ProductEntity
 import com.code.kembang_telon.R
 import com.code.kembang_telon.data.remote.response.DataCart
@@ -40,7 +41,7 @@ class CartAdapter(private val productList: List<DataCart>, private val ctx: Cont
 
         // rubah ip lokal
         Glide.with(ctx)
-            .load("http://192.168.0.7:8000/storage/products/${cartItem.image}")
+            .load(BuildConfig.BASE_URL + "/storage/products/${cartItem.image}")
             .into(holder.cartImage)
 
         holder.cartMore.setOnClickListener {

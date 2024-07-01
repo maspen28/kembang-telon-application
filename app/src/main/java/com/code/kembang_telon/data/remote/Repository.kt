@@ -1,17 +1,22 @@
 package com.code.kembang_telon.data.remote
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.code.kembang_telon.data.local.entity.ProductEntity
 import com.code.kembang_telon.data.local.room.CardDao
 import com.code.kembang_telon.data.local.room.ProductDao
 import com.code.kembang_telon.data.remote.response.CartResponse
+import com.code.kembang_telon.data.remote.response.CheckoutResponse
+import com.code.kembang_telon.data.remote.response.CityResponse
 import com.code.kembang_telon.data.remote.response.DeleteCartResponse
 import com.code.kembang_telon.data.remote.response.DetailProductResponse
+import com.code.kembang_telon.data.remote.response.DistrictResponse
+import com.code.kembang_telon.data.remote.response.HistoryResponse
 import com.code.kembang_telon.data.remote.response.LoginResponse
+import com.code.kembang_telon.data.remote.response.OngkirResponseItem
+import com.code.kembang_telon.data.remote.response.PaymentResponse
 import com.code.kembang_telon.data.remote.response.PostCartResponse
 import com.code.kembang_telon.data.remote.response.ProductResponse
+import com.code.kembang_telon.data.remote.response.ProvincesResponseItem
 import com.code.kembang_telon.data.remote.response.RegisterResponse
 import com.code.kembang_telon.data.remote.retrofit.ApiService
 import com.code.kembang_telon.model.LoginRequestBody
@@ -72,6 +77,33 @@ class Repository(
         })
 
         return result
+    }
+
+    fun getHistory(customer_id: String): LiveData<Result<HistoryResponse>>{
+        return makeApiCall(apiService.getHistory(customer_id))
+    }
+    fun payment(orderId: String): LiveData<Result<PaymentResponse>>{
+        return makeApiCall(apiService.payment(orderId))
+    }
+
+    fun checkout(customer_id: String, province_id: String, city_id: String, district_id: String, ongkos_kirim: String, customer_phone: String ) : LiveData<Result<CheckoutResponse>>{
+        return makeApiCall(apiService.checkout(customer_id, province_id, city_id, district_id, ongkos_kirim, customer_phone))
+    }
+
+    fun ongkir(origin: String, destination: String, weight: String, courier: String): LiveData<Result<List<OngkirResponseItem>>>{
+        return makeApiCall(apiService.ongkir(origin, destination, weight, courier))
+    }
+
+    fun getProvinces(): LiveData<Result<List<ProvincesResponseItem>>>{
+        return makeApiCall(apiService.getProvinces())
+    }
+
+    fun getCity(province_id: String): LiveData<Result<CityResponse>>{
+        return makeApiCall(apiService.getCity(province_id))
+    }
+
+    fun getDistrict(province_id: String, city_id: String): LiveData<Result<DistrictResponse>>{
+        return makeApiCall(apiService.getDistrict(province_id, city_id))
     }
 
     fun getCart(customer_id: String): LiveData<Result<CartResponse>>{

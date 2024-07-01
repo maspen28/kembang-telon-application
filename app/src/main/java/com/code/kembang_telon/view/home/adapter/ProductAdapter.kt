@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.code.kembang_telon.BuildConfig
 import com.code.kembang_telon.R
 import com.code.kembang_telon.data.remote.response.ProductsItem
 import com.code.kembang_telon.view.detailProduct.DetailProductActivity
@@ -32,7 +33,7 @@ class ProductAdapter(private val productList: List<ProductsItem>, context: Conte
 
 
         Glide.with(ctx)
-            .load("http://192.168.0.7:8000/storage/products/${product.image}")
+            .load(BuildConfig.BASE_URL + "/storage/products/${product.image}")
             .into(holder.productImage_singleProduct)
 
 
