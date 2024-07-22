@@ -30,8 +30,16 @@ class CartAdapter(private val productList: List<DataCart>, private val ctx: Cont
         val cartItem: DataCart = productList[position]
 
         holder.cartName.text = cartItem.namaProduk
-        holder.cartPrice.text = "Rp."+ cartItem.price + " x " + cartItem.qty.toString()
-        holder.totalTvCart.text = "total : " + (cartItem.price!! * cartItem.qty!!).toString()
+        if(cartItem.besarDiskon != null){
+            holder.cartPrice.text = "Rp."+ cartItem.price + " x " + cartItem.qty.toString()
+            holder.cartDiskon.text = "Diskon : " + cartItem.besarDiskon.toString() + "%"
+            holder.totalTvCart.text = "total : " + ((cartItem.price!!.toDouble() * cartItem.besarDiskon!!.toDouble() / 100) * cartItem.qty!!.toDouble()).toInt().toString()
+
+        }else{
+            holder.cartDiskon.visibility = View.GONE
+            holder.cartPrice.text = "Rp."+ cartItem.price + " x " + cartItem.qty.toString()
+            holder.totalTvCart.text = "total : " + (cartItem.price!! * cartItem.qty!!).toString()
+        }
         holder.cartMore.setOnClickListener {
 
         }
@@ -62,6 +70,7 @@ class CartAdapter(private val productList: List<DataCart>, private val ctx: Cont
         val cartName: TextView = itemView.findViewById(R.id.cartName)
         val cartPrice: TextView = itemView.findViewById(R.id.cartPrice)
         val totalTvCart: TextView = itemView.findViewById(R.id.totalTvCart)
+        val cartDiskon: TextView = itemView.findViewById(R.id.cartDiskon)
     }
 }
 

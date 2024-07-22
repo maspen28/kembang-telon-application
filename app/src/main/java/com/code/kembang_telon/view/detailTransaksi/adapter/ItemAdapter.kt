@@ -29,7 +29,18 @@ class ItemAdapter(private val ctx: Context):RecyclerView.Adapter<ItemAdapter.Ite
 
         holder.itemName.text = cartItem.namaProduk
         holder.countTvItem.text = "Jumlah "+  cartItem.qty.toString()
-        holder.totalCountTvItem.text = "Rp." + (cartItem.price!! * cartItem.qty!!).toString()
+
+        if(cartItem.besarDiskon != null){
+            holder.diskonTvItem.text = cartItem.besarDiskon.toString() + "%"
+            holder.totalCountTvItem.text = "Rp." + ((cartItem.price!!.toDouble() * cartItem.besarDiskon!!.toDouble() / 100) * cartItem.qty!!.toDouble()).toInt().toString()
+
+        }else{
+            holder.diskonTvItem.visibility = View.GONE
+            holder.itemDiskon.visibility = View.GONE
+            holder.totalCountTvItem.text = "Rp." + (cartItem.price!! * cartItem.qty!!).toString()
+
+
+        }
 
 
     }
@@ -45,6 +56,8 @@ class ItemAdapter(private val ctx: Context):RecyclerView.Adapter<ItemAdapter.Ite
         val itemName: TextView = itemView.findViewById(R.id.itemName)
         val countTvItem: TextView = itemView.findViewById(R.id.countTvItem)
         val totalCountTvItem: TextView = itemView.findViewById(R.id.totalCountTvItem)
+        val diskonTvItem: TextView = itemView.findViewById(R.id.diskonTvItem)
+        val itemDiskon: TextView = itemView.findViewById(R.id.itemDiskon)
     }
 
     fun updateList(newList: List<DataCart>){

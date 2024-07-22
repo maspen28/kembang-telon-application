@@ -59,6 +59,17 @@
                     />
 
                 <TextView
+                    android:id="@+id/cartDiskon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Diskon"
+                    android:textSize="18sp"
+                    android:layout_marginVertical="2dp"
+                    android:textColor="@color/mainText"
+                    android:fontFamily="@font/metropolis_semibold"
+                    />
+
+                <TextView
                     android:id="@+id/totalTvCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

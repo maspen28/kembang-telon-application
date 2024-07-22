@@ -30,6 +30,12 @@ class ProductAdapter(private val productList: List<ProductsItem>, context: Conte
         val product = productList[position]
         holder.productName_singleProduct.text = product.name
         holder.productPrice_singleProduct.text = "Rp."+product.price
+        if(product.discountName != null){
+            holder.productDiscount.text = product.discountName.toString()
+        }else{
+            holder.productDiscount.text = ""
+        }
+
 
 
         Glide.with(ctx)
@@ -52,6 +58,7 @@ class ProductAdapter(private val productList: List<ProductsItem>, context: Conte
         val productImage_singleProduct: ImageView = itemView.findViewById(R.id.productImage_singleProduct)
         val productName_singleProduct: TextView = itemView.findViewById(R.id.productName_singleProduct)
         val productPrice_singleProduct: TextView = itemView.findViewById(R.id.productPrice_singleProduct)
+        val productDiscount: TextView = itemView.findViewById(R.id.productDiscount)
 
 
     }

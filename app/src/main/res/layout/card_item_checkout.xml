@@ -41,6 +41,18 @@
                     android:maxEms="12"/>
 
                 <TextView
+                    android:id="@+id/itemDiskon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Diskon"
+                    android:textSize="14sp"
+                    android:maxLines="1"
+                    android:textColor="@color/mainText"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:maxEms="12"
+                    android:layout_marginTop="2dp"/>
+
+                <TextView
                     android:id="@+id/totalTvCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,7 +62,7 @@
                     android:textColor="@color/mainText"
                     android:textSize="14sp"
                     android:fontFamily="@font/metropolis_semibold"
-                    android:layout_marginTop="6dp"/>
+                    android:layout_marginTop="2dp"/>
 
 
             </LinearLayout>
@@ -74,6 +86,19 @@
                     android:textAlignment="textEnd"/>
 
                 <TextView
+                    android:id="@+id/diskonTvItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="50%"
+                    android:textSize="14sp"
+                    android:maxLines="1"
+                    android:textColor="@color/mainText"
+                    android:fontFamily="@font/metropolis_semibold"
+                    android:maxEms="12"
+                    android:textAlignment="textEnd"
+                    android:layout_marginTop="2dp"/>
+
+                <TextView
                     android:id="@+id/totalCountTvItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,7 +109,7 @@
                     android:fontFamily="@font/metropolis_semibold"
                     android:maxEms="12"
                     android:textAlignment="textEnd"
-                    android:layout_marginTop="6dp"/>
+                    android:layout_marginTop="2dp"/>
 
 
 

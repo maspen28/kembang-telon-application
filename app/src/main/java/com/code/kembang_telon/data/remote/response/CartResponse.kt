@@ -34,6 +34,15 @@ data class DataCart(
 	@field:SerializedName("weight")
 	val weight: Int? = null,
 
-	@field:SerializedName("id")
-	val id: Int? = null
+	@field:SerializedName("cart_id")
+	val id: Int? = null,
+
+	@field:SerializedName("discount_id")
+	val diskonId: String? = null,
+
+	@field:SerializedName("discount_name")
+	val nameDiskon: String? = null,
+
+	@field:SerializedName("besar_diskon")
+	val besarDiskon: String? = null,
 )

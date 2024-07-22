@@ -9,10 +9,10 @@ import com.code.kembang_telon.data.remote.response.DetailProductResponse
 import com.code.kembang_telon.data.remote.response.DistrictResponse
 import com.code.kembang_telon.data.remote.response.HistoryResponse
 import com.code.kembang_telon.data.remote.response.LoginResponse
+import com.code.kembang_telon.data.remote.response.NewProductResponse
 import com.code.kembang_telon.data.remote.response.OngkirResponseItem
 import com.code.kembang_telon.data.remote.response.PaymentResponse
 import com.code.kembang_telon.data.remote.response.PostCartResponse
-import com.code.kembang_telon.data.remote.response.ProductResponse
 import com.code.kembang_telon.data.remote.response.ProvincesResponseItem
 import com.code.kembang_telon.data.remote.response.RegisterResponse
 import retrofit2.Call
@@ -64,7 +64,7 @@ interface ApiService {
     ): Call<DistrictResponse>
 
     @GET("product")
-        fun getAllProduct(): Call<ProductResponse>
+        fun getAllProduct(): Call<NewProductResponse>
 
     @GET("product/{id}")
     fun getDetailProduct(

@@ -98,9 +98,6 @@ class DetailTransaksiActivity : AppCompatActivity() {
         spinnerSubDistrict = findViewById(R.id.spinnerSubDistrict)
         spinnerPostalCode = findViewById(R.id.spinnerPostalCode)
 
-
-
-
     }
     private fun setupProvinceSpinner(provinces: List<ProvincesResponseItem>) {
         val provinceNames = provinces.map { it.name }
@@ -232,7 +229,10 @@ class DetailTransaksiActivity : AppCompatActivity() {
 
                             Item.addAll(nonNullCart as ArrayList<DataCart>)
                             Item.forEach {
-                                sum += it.price!! * it.qty!!
+//                                sum += it.price!! * it.qty!!
+                                if(it.besarDiskon != null){
+                                    sum += (it.price!! * it.besarDiskon.toInt() / 100) * it.qty!!
+                                }else sum += it.price!! * it.qty!!
                                 weight += it.qty * it.weight!!
                             }
 

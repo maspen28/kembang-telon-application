@@ -96,7 +96,9 @@ class ShopFragment : Fragment(), CartItemClickAdapter {
                             Item.addAll(data.data as ArrayList<DataCart>)
                             setUpdateList(data.data)
                             Item.forEach {
-                                sum += it.price!! * it.qty!!
+                                if(it.besarDiskon != null){
+                                    sum += (it.price!! * it.besarDiskon.toInt() / 100) * it.qty!!
+                                }else sum += it.price!! * it.qty!!
                             }
 
                             binding.totalPriceBagFrag.text = "Rp." + sum
