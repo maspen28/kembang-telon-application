@@ -365,7 +365,13 @@ class DetailTransaksiActivity : AppCompatActivity() {
                         binding.progressBar.visibility = View.GONE
                         val data = result.data
                         if(data.idOrder != null){
-                            detailTransaksiViewModel.payment(data.idOrder.toString())
+//                            detailTransaksiViewModel.payment(data.idOrder.toString())
+                            if (data.snapToken != null) {
+                                val url = BuildConfig.PAYMENT_URL + "/${data.snapToken}"
+                                val intent = Intent(this, PaymentMidtransActivity::class.java)
+                                intent.putExtra("URL", url)
+                                startActivity(intent)
+                            }
                         }
                     }
                     is Result.Error -> {

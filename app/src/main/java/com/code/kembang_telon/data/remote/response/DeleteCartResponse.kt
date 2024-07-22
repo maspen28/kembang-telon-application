@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class DeleteCartResponse(
 
 	@field:SerializedName("data")
-	val data: Data? = null,
+	val data: String? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
