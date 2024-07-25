@@ -21,7 +21,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "BASE_URL", "\"http://192.168.0.6:8000\"")
+        buildConfigField("String", "BASE_URL", "\"http://192.168.0.3:8000\"")
         buildConfigField ("String", "CLIENT_KEY", "\"SB-Mid-client-0tjNqdkfZgCiKC-P\"")
         buildConfigField ("String", "PAYMENT_URL", "\"https://app.sandbox.midtrans.com/snap/v4/redirection\"")
 
