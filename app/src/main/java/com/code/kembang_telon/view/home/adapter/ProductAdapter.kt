@@ -65,7 +65,7 @@ class ProductAdapter(private val productList: List<ProductsItem>, context: Conte
 
 
         holder.itemView.setOnClickListener {
-            goDetailsPage(product.id)
+            goDetailsPage(product.id, product.besarDiskon)
         }
 
     }
@@ -83,9 +83,10 @@ class ProductAdapter(private val productList: List<ProductsItem>, context: Conte
         val productPrice_diskon: TextView = itemView.findViewById(R.id.productPrice_diskon)
     }
 
-    private fun goDetailsPage(id: Int?) {
+    private fun goDetailsPage(id: Int?, diskon: Any? = null) {
         val intent = Intent(ctx , DetailProductActivity::class.java)
         intent.putExtra(DetailProductActivity.ID_PRODUCT, id.toString())
+        if(diskon != null) intent.putExtra(DetailProductActivity.DISKON, diskon.toString())
         ctx.startActivity(intent)
     }
 }
